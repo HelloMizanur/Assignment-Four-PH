@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="jobs.png" type="image/x-icon" />
+    <title>Job Tracker</title>
+
+    <!-- TailWind and daisy UI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awsome css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Style -->
+    <style>
+      * {
+        font-family: "Geist", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="text-[#002C5C]">
+    <header>
+      <section class="w-10/12 mx-auto py-10">
+        <h1 class="text-3xl font-bold">Job Application Tracker</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 py-6">
+          <!-- total Job -->
+          <div class="border-2 border-gray-300 rounded-xl p-5 shadow space-y-4">
+            <h2 class="text-[#323B49] font-bold">Total</h2>
+            <p id="total-jobs" class="text-2xl font-bold"></p>
+          </div>
+          <!-- Interview -->
+          <div class="border-2 border-gray-300 rounded-xl p-5 shadow space-y-4">
+            <h2 class="text-[#323B49] font-bold">Interview</h2>
+            <p id="interview-jobs" class="text-2xl font-bold text-green-600">
+              0
+            </p>
+          </div>
+          <!-- Rejected -->
+          <div class="border-2 border-gray-300 rounded-xl p-5 shadow space-y-4">
+            <h2 class="text-[#323B49] font-bold">Rejected</h2>
+            <p id="rejected-jobs" class="text-2xl text-red-600 font-bold">0</p>
+          </div>
+        </div>
+        <div class="w-full h-0.5 bg-gray-300"></div>
+        <!-- Available jobs heading section -->
+        <div>
+          <div><h1></h1></div>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section class="w-10/12 mx-auto">
+        <!-- Available jobs heading section -->
+        <div class="flex justify-between items-center">
+          <div><h1 class="text-xl font-bold">Available Jobs</h1></div>
+          <div class="flex items-center">
+            <p class="text-[#323B49] hidden">
+              <span id="available-jobs-page">2</span> of
+            </p>
+            <p class="text-[#323B49]"><span id="available-jobs"></span> jobs</p>
+          </div>
+        </div>
+
+        <!-- main sections -->
+        <section>
+          <div id="filter-buttons" class="py-4">
+            <!-- Buttons for all three -->
+            <button id="filter-all-btn" class="btn btn-primary w-24">
+              All
+            </button>
+            <button id="filter-interview-btn" class="btn btn-soft w-24">
+              Interview
+            </button>
+            <button id="filter-rejected-btn" class="btn btn-soft w-24">
+              Rejected
+            </button>
+          </div>
+          <!-- All available Jobs Cards sections -->
+          <div id="all-jobs-cards" class="p-5 space-y-4">
+            <!-- job card 1-->
+            <div
+              class="flex justify-between border-2 border-gray-200 rounded-xl shadow p-3"
+            >
+              <div class="space-y-5">
+                <!-- job heading -->
+                <div>
+                  <h1 class="font-black">Mobile First Corp</h1>
+                  <p class="text-gray-300">React Native Developer</p>
+                </div>
+                <h1 class="text-gray-400">
+                  Remote • Full-time • $130,000 - $175,000
+                </h1>
+                <button class="btn btn-soft">Not Applied</button>
+                <p class="text-gray-500">
+                  Build cross-platform mobile applications using React Native.
+                  Work on products used by millions of users worldwide.
+                </p>
+                <div>
+                  <button class="btn btn-outline btn-success">interview</button>
+                  <button class="btn btn-outline btn-error">Rejected</button>
+                </div>
+              </div>
+              <div class="">
+                <i class="fa-solid fa-trash-can cursor-pointer"></i>
+              </div>
+            </div>
+            <!-- job card 2-->
+            <div
+              class="flex justify-between border-2 border-gray-200 rounded-xl shadow p-3"
+            >
+              <div class="space-y-5">
+                <!-- job heading -->
+                <div>
+                  <h1 class="font-black">WebFlow Agency</h1>
+                  <p class="text-gray-300">Web Designer & Developer</p>
+                </div>
+                <h1 class="text-gray-400">
+                  Los Angeles, CA • Part-time • $80,000 - $120,000
+                </h1>
+                <button class="btn btn-soft">Not Applied</button>
+                <p class="text-gray-500">
+                  Create stunning web experiences for high-profile clients. Must
+                  have portfolio and experience with modern web design trends.
+                </p>
+                <div>
+                  <button class="btn btn-outline btn-success">interview</button>
+                  <button class="btn btn-outline btn-error">Rejected</button>
+                </div>
+              </div>
+              <div class="">
+                <i class="fa-solid fa-trash-can cursor-pointer"></i>
+              </div>
+            </div>
+            <!-- job card 3-->
+            <div
+              class="flex justify-between border-2 border-gray-200 rounded-xl shadow p-3"
+            >
+              <div class="space-y-5">
+                <!-- job heading -->
+                <div>
+                  <h1 class="font-black">DataViz Solutions</h1>
+                  <p class="text-gray-300">Data Visualization Specialist</p>
+                </div>
+                <h1 class="text-gray-400">
+                  Boston, MA • Full-time • $125,000 - $165,000
+                </h1>
+                <button class="btn btn-soft">Not Applied</button>
+                <p class="text-gray-500">
+                  Transform complex data into compelling visualizations.
+                  Required skills: D3.js, React, and strong analytical thinking.
+                </p>
+                <div>
+                  <button class="btn btn-outline btn-success">interview</button>
+                  <button class="btn btn-outline btn-error">Rejected</button>
+                </div>
+              </div>
+              <div class="">
+                <i class="fa-solid fa-trash-can cursor-pointer"></i>
+              </div>
+            </div>
+            <!-- job card 4-->
+            <div
+              class="flex justify-between border-2 border-gray-200 rounded-xl shadow p-3"
+            >
+              <div class="space-y-5">
+                <!-- job heading -->
+                <div>
+                  <h1 class="font-black">CloudFirst Inc</h1>
+                  <p class="text-gray-300">Backend Developer</p>
+                </div>
+                <h1 class="text-gray-400">
+                  Seattle, WA • Full-time • $140,000 - $190,000
+                </h1>
+                <button class="btn btn-soft">Not Applied</button>
+                <p class="text-gray-500">
+                  Design and maintain scalable backend systems using Python and
+                  AWS. Work with modern DevOps practices and cloud
+                  infrastructure.
+                </p>
+                <div>
+                  <button class="btn btn-outline btn-success">interview</button>
+                  <button class="btn btn-outline btn-error">Rejected</button>
+                </div>
+              </div>
+              <div class="">
+                <i class="fa-solid fa-trash-can cursor-pointer"></i>
+              </div>
+            </div>
+          </div>
+          <!-- All interview Jobs Cards sections -->
+          <div id="all-interview-cards" class="hidden p-5 space-y-4"></div>
+          <!-- All Rejected Jobs Cards sections -->
+          <div id="all-rejected-cards" class="hidden p-5 space-y-4">
+            <h1>Rejected section section</h1>
+          </div>
+          <!-- Page for no jobs -->
+          <div
+            id="nojobs-cards"
+            class="hidden p-5 space-y-4 w-10/12 mx-auto text-center"
+          >
+            <div class="flex flex-col justify-center items-center">
+              <div class="">
+                <img src="./jobs.png" alt="" />
+              </div>
+              <h1 class="text-xl md:text-2xl font-bold">No jobs available</h1>
+              <p class="">Check back soon for new job opportunities</p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/machine.js"></script>
+  </body>
+</html>
